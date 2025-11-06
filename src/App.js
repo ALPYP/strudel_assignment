@@ -9,7 +9,7 @@ import { getAudioContext, webaudioOutput, registerSynthSounds } from '@strudel/w
 import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
-import DJ_Controls from './components/DJ_Controls';
+import DJControls from './components/DJ_Controls';
 import PlayButtons from './components/PlayButtons';
 import JsonSaver from './components/JsonSaver';
 import PreprocessTextarea from './components/PreprocessTextarea';
@@ -57,7 +57,11 @@ export default function StrudelDemo() {
             handlePlay();
         }
     }, [volume, reverb, cpm, bitCrush, coarse, distort])
-    
+
+    // UseEffect for when user is dragging volume range
+
+    // UseEffect for when user is dragging reverb range
+
 useEffect(() => {
 
     if (!hasRun.current) {
@@ -131,7 +135,7 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        <DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}
+                        <DJControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}
                             reverbChange={reverb} onReverbChange={(e) => setReverb(e.target.value)}
                             cpmChange={cpm} onCpmChange={(e) => setCpm(e.target.value)}
                             bitCrushChange={bitCrush} onBitCrushChange={(e) => setBitCrush(e.target.checked)}

@@ -7,10 +7,13 @@ function DJ_Controls({ volume, onVolumeChange, reverb, onReverbChange, cpm, onCp
             </div>
 
             <label htmlFor="volume_range" className="form-label">Volume</label>
+            <label htmlFor="volume_range" className="form-label-value"></label>
             <input type="range" className="form-range" min="0" max="5" step="0.5" onMouseUp={onVolumeChange} id="volume_range" />
 
             <label htmlFor="reverb_range" className="form-label">Reverb</label>
+            <label htmlFor="reverb_range" className="form-label-value"></label>
             <input type="range" className="form-range" min="0" max="5" step="0.5" onMouseUp={onReverbChange} id="reverb_range" />
+            
             <div className="form-checkbox-container">
                 <div className="form-check">
                     <input className="form-check-input" type="checkbox" onChange={onBitCrushChange} value="" id="bitCrusher" />
