@@ -26,7 +26,7 @@ export default function StrudelDemo() {
     const hasRun = useRef(false);
 
     const handlePlay = () => {
-        let outputText = Preprocess({ inputText: procText, volume: volume, reverb: reverb, bitCrush: bitCrush, cpm: cpm });
+        let outputText = Preprocess({ inputText: procText, volume: volume, reverb: reverb, bitCrush: bitCrush, coarse: coarse, distort: distort, cpm: cpm });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
@@ -45,6 +45,8 @@ export default function StrudelDemo() {
     const [cpm, setCpm] = useState(120);
 
     const [bitCrush, setBitCrush] = useState(false);
+    const [coarse, setCoarse] = useState(false);
+    const [distort, setDistort] = useState(false);
 
     const [state, setState] = useState("stop");
 
@@ -53,7 +55,7 @@ export default function StrudelDemo() {
         if (state === "play") {
             handlePlay();
         }
-    }, [volume, reverb, cpm, bitCrush])
+    }, [volume, reverb, cpm, bitCrush, coarse, distort])
     
 useEffect(() => {
 
@@ -131,7 +133,9 @@ return (
                         <DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}
                             reverbChange={reverb} onReverbChange={(e) => setReverb(e.target.value)}
                             cpmChange={cpm} onCpmChange={(e) => setCpm(e.target.value)}
-                            bitCrushChange={bitCrush} onBitCrushChange={(e) => setBitCrush(e.target.checked)} />
+                            bitCrushChange={bitCrush} onBitCrushChange={(e) => setBitCrush(e.target.checked)}
+                            coarsehange={coarse} onCoarseChange={(e) => setCoarse(e.target.checked)}
+                            distortChange={distort} onDistortChange={(e) => setDistort(e.target.checked)} />
                     </div>
                 </div>
             </div>

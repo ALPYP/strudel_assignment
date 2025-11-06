@@ -1,4 +1,4 @@
-function DJ_Controls({ volume, onVolumeChange, reverb, onReverbChange, cpm, onCpmChange, bitCrush, onBitCrushChange }) {
+function DJ_Controls({ volume, onVolumeChange, reverb, onReverbChange, cpm, onCpmChange, bitCrush, onBitCrushChange, coarse, onCoarseChange, distort, onDistortChange }) {
     return (
         <div className="dj-controls-container">
             <div className="input-group mb-3">
@@ -14,9 +14,23 @@ function DJ_Controls({ volume, onVolumeChange, reverb, onReverbChange, cpm, onCp
 
             <div className="form-check">
                 <input className="form-check-input" type="checkbox" onChange={onBitCrushChange} value="" id="bitCrusher" />
-                <label className="form-check-label" htmlFor="d1">
+                <label className="form-check-label" htmlFor="bitCrusher">
                         BitCrusher
                     </label>
+            </div>
+
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox" onChange={onCoarseChange} value="" id="coarse" />
+                <label className="form-check-label" htmlFor="coarse">
+                    Coarse
+                </label>
+            </div>
+
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox" onChange={onDistortChange} value="" id="distort" />
+                <label className="form-check-label" htmlFor="distort">
+                    Distort
+                </label>
             </div>
         </div>
     );

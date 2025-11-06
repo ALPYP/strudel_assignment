@@ -14,21 +14,27 @@
 }
 
 .btn-stop {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 15  0px;
     border-radius: 50%;
     border-color: black;
+    background: darkRed;
+    margin: 20px;
 }
 
-.btn-play{
-    width: 100px;
-    height: 100px;
+.btn-start {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     border-color: black;
+    background: darkolivegreen;
+    margin: 20px;
 }
 
 .title-part {
     background: teal;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
 }
 
 .form-label-text {
@@ -52,7 +58,6 @@
     width: 30px !important;
     height: 30px !important;
     border: 2px;
-    position: relative;
     background: white;
     margin: 0;
     top: 0;
@@ -62,7 +67,7 @@
     width: 1225px;
     background: lightgray;
     color: black;
-    font-family: 'Agency FB';
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.4rem;
     font-weight: 350;
 }

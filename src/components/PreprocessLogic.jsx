@@ -1,4 +1,4 @@
-export function Preprocess({ inputText, volume, reverb, cpm, bitCrush }) {
+export function Preprocess({ inputText, volume, reverb, cpm, bitCrush, coarse, distort }) {
 
     let outputText = inputText + "\n//WSG this is a test";
 
@@ -30,6 +30,12 @@ export function Preprocess({ inputText, volume, reverb, cpm, bitCrush }) {
             if (bitCrush) {
                 matchNew = matchNew.replaceAll(/(?<!post)gain\(([^)]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})\n.crush(8)`);
             }
+            if (coarse) {
+                matchNew = matchNew.replaceAll(/(?<!post)gain\(([^)]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})\n.coarse(6)`);
+            }
+            if (distort) {
+                matchNew = matchNew.replaceAll(/(?<!post)gain\(([^)]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})\n.distort(6)`);
+            }
             return matchNew;
         });
 
@@ -37,9 +43,5 @@ export function Preprocess({ inputText, volume, reverb, cpm, bitCrush }) {
         (text, original, i) => text.replaceAll(original, matches2[i]),
         outputText);    
 
-    // Add bitcrush
-    if (bitCrush) {
-        matches3 += "\ncrush(8)";
-    }
     return matches3;
 }
