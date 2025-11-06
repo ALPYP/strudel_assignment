@@ -13,15 +13,74 @@
   }
 }
 
+.btn-stop {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-color: black;
+}
+
+.btn-play{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-color: black;
+}
+
+.title-part {
+    background: teal;
+}
+
+.form-label-text {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 670;
+    font-family: Papyrus;
+    color: darkseagreen;
+}
+
+.form-range {
+    outline: none;
+}
+
 .form-check-input {
     width: 30px !important;
     height: 30px !important;
-    accent-color: rebeccapurple !important;
+    border: 2px;
+    position: relative;
+    background: white;
+    margin: 0;
+    top: 0;
+}
+
+.form-control-text-area {
+    width: 1225px;
+    background: lightgray;
+    color: black;
+    font-family: 'Agency FB';
+    font-size: 1.4rem;
+    font-weight: 350;
+}
+
+.form-check-input:checked {
+    background: black;
+    border-color: orangered;
 }
 
 .form-check-label {
     width: 30px !important;
     height: 30px !important;
+
+}
+
+.dj-controls-container {
+    background: lightgray;
+    color: black;
 }
 
 .App-header {

@@ -1,6 +1,6 @@
 function DJ_Controls({ volume, onVolumeChange, reverb, onReverbChange, cpm, onCpmChange, bitCrush, onBitCrushChange }) {
     return (
-        <>
+        <div className="dj-controls-container">
             <div className="input-group mb-3">
                 <span className="input-group-text" id="cpm_label">setCPM</span>
                 <input type="number" className="form-control" id="cpm_text_input" placeholder="120" aria-label="cpm" onChange={onCpmChange} aria-describedby="cpm_label" />
@@ -14,11 +14,11 @@ function DJ_Controls({ volume, onVolumeChange, reverb, onReverbChange, cpm, onCp
 
             <div className="form-check">
                 <input className="form-check-input" type="checkbox" onChange={onBitCrushChange} value="" id="bitCrusher" />
-                <label className="form-check-label" htmlFor="bitCrusher">
+                <label className="form-check-label" htmlFor="d1">
                         BitCrusher
                     </label>
             </div>
-        </>
+        </div>
     );
 }
 

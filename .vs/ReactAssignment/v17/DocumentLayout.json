@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\preprocesstextarea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\preprocesstextarea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\preprocesslogic.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\preprocesslogic.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\dj_controls.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\dj_controls.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\playbuttons.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\playbuttons.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\preprocesstextarea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\preprocesstextarea.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|c:\\users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\dj_controls.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{1C538C04-AF09-44AC-9272-6DDEAA808F25}|ReactAssignment.esproj|solutionrelative:src\\components\\dj_controls.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +34,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "App.js",
               "DocumentMoniker": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\App.js",
               "RelativeDocumentMoniker": "src\\App.js",
               "ToolTip": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\App.js",
               "RelativeToolTip": "src\\App.js",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAswKkAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAswHwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-11-03T05:53:18.303Z",
               "IsPinned": true,
@@ -48,33 +52,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "App.css",
+              "DocumentMoniker": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\App.css",
+              "RelativeDocumentMoniker": "src\\App.css",
+              "ToolTip": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\App.css",
+              "RelativeToolTip": "src\\App.css",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAYwGgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-06T16:41:33.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "PlayButtons.jsx",
               "DocumentMoniker": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\PlayButtons.jsx",
               "RelativeDocumentMoniker": "src\\components\\PlayButtons.jsx",
               "ToolTip": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\PlayButtons.jsx",
               "RelativeToolTip": "src\\components\\PlayButtons.jsx",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-11-06T15:02:05.411Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "DJ_Controls.jsx",
               "DocumentMoniker": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\DJ_Controls.jsx",
               "RelativeDocumentMoniker": "src\\components\\DJ_Controls.jsx",
               "ToolTip": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\DJ_Controls.jsx",
               "RelativeToolTip": "src\\components\\DJ_Controls.jsx",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAswBYAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-11-06T13:56:00.818Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "PreprocessTextarea.jsx",
               "DocumentMoniker": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\PreprocessTextarea.jsx",
               "RelativeDocumentMoniker": "src\\components\\PreprocessTextarea.jsx",
@@ -93,7 +110,7 @@
               "RelativeDocumentMoniker": "src\\components\\PreprocessLogic.jsx",
               "ToolTip": "C:\\Users\\salfe\\source\\repos\\strudel_assignment\\src\\components\\PreprocessLogic.jsx",
               "RelativeToolTip": "src\\components\\PreprocessLogic.jsx",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAswBEAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAswBwAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
               "WhenOpened": "2025-11-06T13:54:34.756Z",
               "EditorCaption": ""
