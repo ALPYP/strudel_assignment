@@ -1,9 +1,22 @@
-export function Preprocess({ inputText, volume }) {
+export function Preprocess({ inputText, volume, reverb, delay, cpm }) {
 
     let outputText = inputText + "\n//WSG this is a test";
 
     outputText += `\n//all(x => x.gain(${volume}))`
     outputText = outputText.replaceAll("{$VOLUME}", volume)
+
+    const cps = Number(cpm) / 60;
+    // Adds new cps, latest one should replace the older one
+    outputText += `\nsetCps(${cps})\n`;
+
+    // Reverb
+    outputText += `\nroom(${reverb})\n`
+
+    // delay
+    if (delay) {
+        //outputText += `\ndelay(1)\n`;
+    }
+
 
     let regex = /[a-zA-Z0-9_]+:\s*\n[\s\S]+?\r?\n(?=[a-zA-Z0-9_]*[:\/])/gm;
     let m;

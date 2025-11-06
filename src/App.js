@@ -70,7 +70,7 @@ export default function StrudelDemo() {
     const hasRun = useRef(false);
 
     const handlePlay = () => {
-        let outputText = Preprocess({ inputText: procText, volume: volume });
+        let outputText = Preprocess({ inputText: procText, volume: volume, reverb: reverb, cpm: cpm });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
@@ -82,6 +82,11 @@ export default function StrudelDemo() {
     const [procText, setProcText] = useState(stranger_tune)
 
     const [volume, setVolume] = useState(1);
+    const [reverb, setReverb] = useState(1);
+
+    const [cpm, setCpm] = useState(120);
+
+    const [delay, setDelay] = useState(false);
 
     const [state, setState] = useState("stop");
 
@@ -89,7 +94,7 @@ export default function StrudelDemo() {
         if (state === "play") {
             handlePlay();
         }
-    }, [volume])
+    }, [volume, reverb, cpm])
     
 useEffect(() => {
 
@@ -135,9 +140,11 @@ useEffect(() => {
 // To update the code to reflect processText
     useEffect(() => {
         if (globalEditor) {
-            globalEditor.setCode(procText);
+            let outPutTextNew = Preprocess({ inputText: procText, reverb, cpm });
+            globalEditor.setCode(outPutTextNew);
+
         }
-    }, [procText])
+    }, [procText, reverb, cpm])
 
 return (
     <div>
@@ -162,7 +169,10 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        <DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} />
+                        <DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}
+                            reverbChange={reverb} onReverbChange={(e) => setReverb(e.target.value)}
+                            cpm={cpm} onCpmChange={(e) => setCpm(e.target.value)}
+                            delay={delay} onDelayChange={(e) => setDelay(e.target.checked)} />
                     </div>
                 </div>
             </div>
