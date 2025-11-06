@@ -13,6 +13,11 @@
   }
 }
 
+.form-json-saver-container{
+    font-family:'Comic Sans MS';
+    background: salmon;
+}
+
 .form-button-container {
     background: linear-gradient(cadetblue, salmon);
 }
@@ -24,6 +29,8 @@
     border-color: black;
     background: darkRed;
     margin: 20px;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .btn-start {
@@ -33,6 +40,8 @@
     border-color: black;
     background: darkolivegreen;
     margin: 20px;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .title-part {

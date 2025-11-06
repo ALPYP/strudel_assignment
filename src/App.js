@@ -11,6 +11,7 @@ import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import DJ_Controls from './components/DJ_Controls';
 import PlayButtons from './components/PlayButtons';
+import JsonSaver from './components/JsonSaver';
 import PreprocessTextarea from './components/PreprocessTextarea';
 import { Preprocess } from './components/PreprocessLogic';
 
@@ -118,10 +119,10 @@ return (
                         <PreprocessTextarea defaultValue={procText} onChange={(e) => setProcText(e.target.value)} />
                     </div>
                     <div className="col-md-4">
-
                         <nav>
                             <PlayButtons onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop");  handleStop() }} />
                         </nav>
+                        <JsonSaver />
                     </div>
                 </div>
                 <div className="row">
