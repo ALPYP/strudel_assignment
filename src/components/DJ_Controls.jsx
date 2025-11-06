@@ -11,26 +11,27 @@ function DJ_Controls({ volume, onVolumeChange, reverb, onReverbChange, cpm, onCp
 
             <label htmlFor="reverb_range" className="form-label">Reverb</label>
             <input type="range" className="form-range" min="0" max="5" step="0.5" onMouseUp={onReverbChange} id="reverb_range" />
-
-            <div className="form-check">
-                <input className="form-check-input" type="checkbox" onChange={onBitCrushChange} value="" id="bitCrusher" />
-                <label className="form-check-label" htmlFor="bitCrusher">
+            <div className="form-checkbox-container">
+                <div className="form-check">
+                    <input className="form-check-input" type="checkbox" onChange={onBitCrushChange} value="" id="bitCrusher" />
+                    <label className="form-check-label" htmlFor="bitCrusher">
                         BitCrusher
                     </label>
-            </div>
+                </div>
 
-            <div className="form-check">
-                <input className="form-check-input" type="checkbox" onChange={onCoarseChange} value="" id="coarse" />
-                <label className="form-check-label" htmlFor="coarse">
-                    Coarse
-                </label>
-            </div>
+                <div className="form-check">
+                    <input className="form-check-input" type="checkbox" onChange={onCoarseChange} value="" id="coarse" />
+                    <label className="form-check-label" htmlFor="coarse">
+                        Coarse
+                    </label>
+                </div>
 
-            <div className="form-check">
-                <input className="form-check-input" type="checkbox" onChange={onDistortChange} value="" id="distort" />
-                <label className="form-check-label" htmlFor="distort">
-                    Distort
-                </label>
+                <div className="form-check">
+                    <input className="form-check-input" type="checkbox" onChange={onDistortChange} value="" id="distort" />
+                    <label className="form-check-label" htmlFor="distort">
+                        Distort
+                    </label>
+                </div>
             </div>
         </div>
     );

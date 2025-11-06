@@ -13,9 +13,13 @@
   }
 }
 
+.form-button-container {
+    background: linear-gradient(cadetblue, salmon);
+}
+
 .btn-stop {
     width: 150px;
-    height: 15  0px;
+    height: 15 0px;
     border-radius: 50%;
     border-color: black;
     background: darkRed;
@@ -61,6 +65,14 @@
     background: white;
     margin: 0;
     top: 0;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.form-checkbox-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .form-control-text-area {
