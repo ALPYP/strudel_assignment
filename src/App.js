@@ -20,57 +20,13 @@ const handleD3Data = (event) => {
     console.log(event.detail);
 };
 
-//export function SetupButtons() {
-
-//    document.getElementById('play').addEventListener('click', () => globalEditor.evaluate());
-//    document.getElementById('stop').addEventListener('click', () => globalEditor.stop());
-//    document.getElementById('process').addEventListener('click', () => {
-//        Proc()
-//    }
-//    )
-//    document.getElementById('process_play').addEventListener('click', () => {
-//        if (globalEditor != null) {
-//            Proc()
-//            globalEditor.evaluate()
-//        }
-//    }
-//    )
-//}
-
-
-
-//export function ProcAndPlay() {
-//    if (globalEditor != null && globalEditor.repl.state.started == true) {
-//        console.log(globalEditor)
-//        Proc()
-//        globalEditor.evaluate();
-//    }
-//}
-
-//export function Proc() {
-
-//    let proc_text = document.getElementById('proc').value
-//    let proc_text_replaced = proc_text.replaceAll('<p1_Radio>', ProcessText);
-//    ProcessText(proc_text);
-//    globalEditor.setCode(proc_text_replaced)
-//}
-
-//export function ProcessText(match, ...args) {
-
-//    let replace = ""
-//    //if (document.getElementById('flexRadioDefault2').checked) {
-//    //    replace = "_"
-//    //}
-
-//    return replace
-//}
 
 export default function StrudelDemo() {
 
     const hasRun = useRef(false);
 
     const handlePlay = () => {
-        let outputText = Preprocess({ inputText: procText, volume: volume });
+        let outputText = Preprocess({ inputText: procText, volume: volume, reverb: reverb, cpm: cpm });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
@@ -79,17 +35,25 @@ export default function StrudelDemo() {
         globalEditor.stop()
     }
 
+    // Hooks
+
     const [procText, setProcText] = useState(stranger_tune)
 
     const [volume, setVolume] = useState(1);
+    const [reverb, setReverb] = useState(1);
+
+    const [cpm, setCpm] = useState(120);
+
+    const [bitCrush, setBitCrush] = useState(false);
 
     const [state, setState] = useState("stop");
 
+    // UseEffect for when play is pressed
     useEffect(() => {
         if (state === "play") {
             handlePlay();
         }
-    }, [volume])
+    }, [volume, reverb, cpm, bitCrush])
     
 useEffect(() => {
 
@@ -162,7 +126,10 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        <DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} />
+                        <DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}
+                            reverbChange={reverb} onReverbChange={(e) => setReverb(e.target.value)}
+                            cpmChange={cpm} onCpmChange={(e) => setCpm(e.target.value)}
+                            bitCrushChange={bitCrush} onBitCrushChange={(e) => setBitCrush(e.target.value)} />
                     </div>
                 </div>
             </div>

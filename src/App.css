@@ -13,6 +13,17 @@
   }
 }
 
+.form-check-input {
+    width: 30px !important;
+    height: 30px !important;
+    accent-color: rebeccapurple !important;
+}
+
+.form-check-label {
+    width: 30px !important;
+    height: 30px !important;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
