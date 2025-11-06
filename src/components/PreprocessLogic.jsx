@@ -25,19 +25,21 @@ export function Preprocess({ inputText, volume, reverb, cpm, bitCrush }) {
     }
     let matches2 = matches.map(
         match => {
-            return match.replaceAll(/(?<!post)gain\(([\d.]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})`)
+            let matchNew = match.replaceAll(/(?<!post)gain\(([\d.]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})`)
                 .replaceAll(/(?<!post)room\(([\d.]+)\)/g, (match, captureGroup) => `room(${captureGroup}*${reverb}*2)`);
+            if (bitCrush) {
+                matchNew = matchNew.replaceAll(/(?<!post)gain\(([^)]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})\n.crush(8)`);
+            }
+            return matchNew;
         });
-
 
     let matches3 = matches.reduce(
         (text, original, i) => text.replaceAll(original, matches2[i]),
-        outputText);
+        outputText);    
 
     // Add bitcrush
     if (bitCrush) {
         matches3 += "\ncrush(8)";
     }
-
     return matches3;
 }

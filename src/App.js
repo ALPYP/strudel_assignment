@@ -26,7 +26,7 @@ export default function StrudelDemo() {
     const hasRun = useRef(false);
 
     const handlePlay = () => {
-        let outputText = Preprocess({ inputText: procText, volume: volume, reverb: reverb, cpm: cpm });
+        let outputText = Preprocess({ inputText: procText, volume: volume, reverb: reverb, bitCrush: bitCrush, cpm: cpm });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
@@ -131,7 +131,7 @@ return (
                         <DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}
                             reverbChange={reverb} onReverbChange={(e) => setReverb(e.target.value)}
                             cpmChange={cpm} onCpmChange={(e) => setCpm(e.target.value)}
-                            bitCrushChange={bitCrush} onBitCrushChange={(e) => setBitCrush(e.target.value)} />
+                            bitCrushChange={bitCrush} onBitCrushChange={(e) => setBitCrush(e.target.checked)} />
                     </div>
                 </div>
             </div>
