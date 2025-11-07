@@ -2,6 +2,14 @@ export function Preprocess({ inputText, volume, reverb, cpm, bitCrush, coarse, d
 
     let outputText = inputText + "\n//WSG this is a test";
 
+    // Not Allowing cpm too  be too high or low
+    if (cpm < 10) {
+        cpm = 10;
+    }
+    else if (cpm > 2000) {
+        cpm = 2000;
+    }
+
     // Replace cps at the top from cpm
     outputText = outputText.replace(/setcps\(([^)]*)\)/i, `setcps(${cpm}/60/4)`
     )
