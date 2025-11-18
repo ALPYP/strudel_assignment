@@ -23,7 +23,7 @@ function D3_Graph({ dataSet }) {
             bottom: 80
         }
         const chartW = w - (chartMargins.left - chartMargins.right);
-        const chartH = w - (chartMargins.top - chartMargins.bottom);
+        const chartH = h - (chartMargins.top - chartMargins.bottom);
         // title
         svg.append("text")
             .attr("x", (w / 2))
@@ -85,7 +85,7 @@ function D3_Graph({ dataSet }) {
             .call(d3.axisLeft(yScale));
     }, [dataSet]);
 
-    return <svg ref={svgReference}></svg>
+    return <svg ref={svgReference} width="100%" height="400px"></svg>
 }
 
 export default D3_Graph;
