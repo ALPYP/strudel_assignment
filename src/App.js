@@ -9,9 +9,8 @@ import { getAudioContext, webaudioOutput, registerSynthSounds } from '@strudel/w
 import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
-import DJControls from './components/DJ_Controls';
+import DJAccordion from './components/DJ_Accordion';
 import PlayButtons from './components/PlayButtons';
-import JsonSaver from './components/JsonSaver';
 import PreprocessTextarea from './components/PreprocessTextarea';
 import { Preprocess } from './components/PreprocessLogic';
 
@@ -26,8 +25,21 @@ export default function StrudelDemo() {
 
     const hasRun = useRef(false);
 
+    // handle when played, also passes in info to prePRocess logic, and packages infro using json obj format
     const handlePlay = () => {
-        let outputText = Preprocess({ inputText: procText, volume: volume, reverb: reverb, bitCrush: bitCrush, coarse: coarse, distort: distort, cpm: cpm });
+        const jsonInfo = {
+            cpm: cpm,
+            instruments: instruments.map(item => ({
+                name: item.name,
+                choseInstrument: item.choseInstrument,
+                volume: item.volume,
+                reverb: item.reverb,
+                bitCrush: item.bitCrush,
+                coarse: item.coarse,
+                distort: item.distort
+            }))
+        }
+        let outputText = Preprocess({ inputText: procText, jsonInfo: jsonInfo });
         globalEditor.setCode(outputText);
         globalEditor.evaluate()
     }
@@ -44,6 +56,7 @@ export default function StrudelDemo() {
     const [reverb, setReverb] = useState(1);
 
     const [cpm, setCpm] = useState(120);
+    const [instruments, setInstruments] = useState([]);
 
     const [bitCrush, setBitCrush] = useState(false);
     const [coarse, setCoarse] = useState(false);
@@ -56,11 +69,7 @@ export default function StrudelDemo() {
         if (state === "play") {
             handlePlay();
         }
-    }, [volume, reverb, cpm, bitCrush, coarse, distort])
-
-    // UseEffect for when user is dragging volume range
-
-    // UseEffect for when user is dragging reverb range
+    }, [volume, reverb, cpm, bitCrush, coarse, distort, instruments])
 
 useEffect(() => {
 
@@ -126,7 +135,6 @@ return (
                         <nav>
                             <PlayButtons onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop");  handleStop() }} />
                         </nav>
-                        <JsonSaver />
                     </div>
                 </div>
                 <div className="row">
@@ -135,12 +143,9 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        <DJControls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)}
-                            reverbChange={reverb} onReverbChange={(e) => setReverb(e.target.value)}
-                            cpmChange={cpm} onCpmChange={(e) => setCpm(e.target.value)}
-                            bitCrushChange={bitCrush} onBitCrushChange={(e) => setBitCrush(e.target.checked)}
-                            coarsehange={coarse} onCoarseChange={(e) => setCoarse(e.target.checked)}
-                            distortChange={distort} onDistortChange={(e) => setDistort(e.target.checked)} />
+                        <DJAccordion onInstrumentsChange={(items, cpm) => {
+                            setInstruments(items);
+                            setCpm(cpm);}}/>
                     </div>
                 </div>
             </div>

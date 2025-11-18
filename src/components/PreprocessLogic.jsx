@@ -1,6 +1,7 @@
-export function Preprocess({ inputText, volume, reverb, cpm, bitCrush, coarse, distort }) {
+export function Preprocess({ inputText, jsonInfo }) { 
 
     let outputText = inputText + "\n//WSG this is a test";
+    let cpm = jsonInfo.cpm;
 
     // Not Allowing cpm too  be too high or low
     if (cpm < 10) {
@@ -14,42 +15,33 @@ export function Preprocess({ inputText, volume, reverb, cpm, bitCrush, coarse, d
     outputText = outputText.replace(/setcps\(([^)]*)\)/i, `setcps(${cpm}/60/4)`
     )
 
-    outputText += `\n//all(x => x.gain(${volume}))`
-    outputText = outputText.replaceAll("{$VOLUME}", volume)
+    // go through instruments in jsoninfo and add them and their data like vol, reverb etc.
+    if (jsonInfo && jsonInfo.instruments && jsonInfo.instruments.length > 0) { // check if there is info, instruments and the length is more than nothing
+        jsonInfo.instruments.forEach((instrument, index) => {
+            // name for variable, unique id and the instrument chosen to both differentiate it, and to know what it is
+            const varName = `${index}_${instrument.choseInstrument}`;
 
-    let regex = /[a-zA-Z0-9_]+:\s*\n[\s\S]+?\r?\n(?=[a-zA-Z0-9_]*[:\/])/gm;
-    let m;
-    let matches = [];
-    while ((m = regex.exec(outputText)) != null) {
-        // Needed to avoid infinite loops with zero-witdh matches
-        if (m.index === regex.lastIndex) {
-            regex.lastIndex++;
-        }
+            // put in info (bar effects which will be done ...)
+            // did it as += bc it was wigging out with just + but idk y tho..
+            let instrumentText = `\n${varName}:\n`;
+            instrumentText += `note(pick(arpeggiator1, 0))`;
+            instrumentText += `.sound("${instrument.choseInstrument}")`;
+            instrumentText += `.gain(${instrument.volume})`;
+            instrumentText += `.room(${instrument.reverb})`;
 
-        // Result can be accessed through the 'm-variable.
-        m.forEach((match, groupIndex) => {
-            matches.push(match)
-        });
+            // .. done here, based on if they are applied or not
+            if (instrument.bitCrush) {
+                instrumentText += `.crush(8)`;
+            }
+            if (instrument.coarse) {
+                instrumentText += `.coarse(6)`;
+            }
+            if (instrument.distort) {
+                instrumentText += `.distort(6)`;
+            }
+
+            outputText += "\n" + instrumentText;
+        })
     }
-    let matches2 = matches.map(
-        match => {
-            let matchNew = match.replaceAll(/(?<!post)gain\(([\d.]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})`)
-                .replaceAll(/(?<!post)room\(([\d.]+)\)/g, (match, captureGroup) => `room(${captureGroup}*${reverb}*2)`);
-            if (bitCrush) {
-                matchNew = matchNew.replaceAll(/(?<!post)gain\(([^)]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})\n.crush(8)`);
-            }
-            if (coarse) {
-                matchNew = matchNew.replaceAll(/(?<!post)gain\(([^)]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})\n.coarse(6)`);
-            }
-            if (distort) {
-                matchNew = matchNew.replaceAll(/(?<!post)gain\(([^)]+)\)/g, (match, captureGroup) => `gain(${captureGroup}*${volume})\n.distort(6)`);
-            }
-            return matchNew;
-        });
-
-    let matches3 = matches.reduce(
-        (text, original, i) => text.replaceAll(original, matches2[i]),
-        outputText);    
-
-    return matches3;
+    return outputText;
 }
