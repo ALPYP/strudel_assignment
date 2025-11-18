@@ -19,7 +19,7 @@ export function Preprocess({ inputText, jsonInfo }) {
     if (jsonInfo && jsonInfo.instruments && jsonInfo.instruments.length > 0) { // check if there is info, instruments and the length is more than nothing
         jsonInfo.instruments.forEach((instrument, index) => {
             // name for variable, unique id and the instrument chosen to both differentiate it, and to know what it is
-            const varName = `${index}_${instrument.choseInstrument}`;
+            const varName = `instrumentt_${index}_${instrument.choseInstrument}`;
 
             // put in info (bar effects which will be done ...)
             // did it as += bc it was wigging out with just + but idk y tho..

@@ -12,6 +12,7 @@ import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import DJAccordion from './components/DJ_Accordion';
 import PlayButtons from './components/PlayButtons';
 import PreprocessTextarea from './components/PreprocessTextarea';
+import D3_Graph from './components/D3_Graph';
 import { Preprocess } from './components/PreprocessLogic';
 
 let globalEditor = null;
@@ -41,7 +42,7 @@ export default function StrudelDemo() {
         }
         let outputText = Preprocess({ inputText: procText, jsonInfo: jsonInfo });
         globalEditor.setCode(outputText);
-        globalEditor.evaluate()
+        globalEditor.evaluate();
     }
 
     const handleStop = () => {
@@ -119,6 +120,13 @@ useEffect(() => {
         }
     }, [procText])
 
+// maps data from instruments to be given to d3
+    const d3Data = instruments.map(instrument => ({
+        name: instrument.name,
+        volume: instrument.volume,
+        reverb: instrument.reverb
+    }));
+
 return (
     <div>
         <div className="title-part">
@@ -146,6 +154,9 @@ return (
                         <DJAccordion onInstrumentsChange={(items, cpm) => {
                             setInstruments(items);
                             setCpm(cpm);}}/>
+                    </div>
+                    <div className="col-md-4">
+                        <D3_Graph dataSet={d3Data} />
                     </div>
                 </div>
             </div>
